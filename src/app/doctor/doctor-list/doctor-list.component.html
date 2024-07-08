@@ -1,0 +1,52 @@
+<!-- <app-navbar></app-navbar> -->
+<!-- to search -->
+<div class="container">
+    <div class="header">
+        <!-- <div class="form-control">
+            <input class="form-control" type="text" placeholder="search text here....." [(ngModel)]="term">
+        </div> -->
+
+    </div>
+</div>
+<!-- <div class="container">
+    <a [routerLink]="['/doctor/add']" role="button" class="btn btn-outline-secondary custom-margin">
+        <span><i class="fa fa-users-plus fa-1g"></i></span><br>
+       ADD DIAGNOSIS
+    </a>
+
+</div> -->
+<table class ="table table-bordered table-stripped">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>medical_history</th>
+            <th>symptoms</th>
+            <th>diagnosis</th>
+            <th>doctor_note</th>
+            <th>next_visit</th>
+            <th>patient_name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of doctorservice.doctor">
+            <td>{{emp.id}}</td>
+            <td>{{emp.medical_history}}</td>
+            <td>{{emp.symptoms}}</td>
+            <td>{{emp.diagnosis}}</td>
+            <td>{{emp.doctor_note}}</td>
+            <td>{{emp.next_visit}}</td>
+            <td>{{emp.patientdetails.patient.name}}</td> 
+             <td>
+                <button
+            class ="btn btn-sm btn-outline-danger">x</button>
+            <button class = "btn btn-info"style="margin-left:10px"  >edit</button>
+            </td> 
+
+        </tr>
+    </tbody>
+    
+
+</table>
+
+

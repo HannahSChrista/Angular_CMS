@@ -1,0 +1,153 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        margin-top: 20px;
+    }
+    h3 {
+        color: #0FA4AF;
+    }
+    .table {
+        background-color: white;
+    }
+    .table thead th {
+        background-color: #0FA4AF;
+        color: white;
+    }
+    .btn-outline-secondary {
+        border-color: #0FA4AF;
+        color: #0FA4AF;
+    }
+    .btn-outline-secondary:hover {
+        background-color: #0FA4AF;
+        color: white;
+    }
+    .form-label {
+        font-weight: bold;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .invalid-feedback {
+        display: block;
+        color: red;
+    }
+</style>
+
+<div class="container">
+    <h3>Add Diagnosis</h3>
+    <hr>
+    
+    <form name="formEmployee" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+        
+        <input type="hidden" name="id" [(ngModel)]="doctorService.formEmployeeData.id">
+
+        <div class="form-group">
+            <label>OP_ID:</label>
+            <input name="opid" #opid="ngModel" [(ngModel)]="formEmployeeData2.patient.opid" required class="form-control">
+            <div class="validation-error" *ngIf="opid.touched && opid.invalid">
+                
+            </div>
+        </div>
+        <br>
+
+       
+        <div class="form-group">
+            <label>Name:</label>
+            <input name="name" [(ngModel)]="formEmployeeData2.patient.name" required class="form-control">
+        </div>
+        <br>
+
+       
+        <div class="form-group">
+            <label>Age:</label>
+            <input name="age" #age="ngModel" [(ngModel)]="formEmployeeData2.patient.age" required class="form-control">
+            <div class="validation-error" *ngIf="age.touched && age.invalid">
+                
+            </div>
+        </div>
+        <br>
+
+     
+        <div class="form-group">
+            <label>Gender:</label>
+            <input name="gender" #gender="ngModel"   [(ngModel)]="formEmployeeData2.patient.gender" required class="form-control">
+            <div class="validation-error" *ngIf="gender.touched && gender.invalid">
+                
+            </div>
+        </div>
+        <br>
+
+   
+        <div class="form-group">
+            <label>Blood_group:</label>
+            <input name="blood_group"  #blood_group="ngModel" [(ngModel)]="formEmployeeData2.patient.blood_group" required class="form-control">
+            <div class="validation-error" *ngIf="blood_group.touched && blood_group.invalid">
+                <div>DOB is required</div>
+            </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label>medical_history:</label>
+            <input name="medical_history"  #medical_history="ngModel" [(ngModel)]="doctorService.formDiagnosisData.medical_history" required class="form-control">
+            <div class="validation-error" *ngIf="medical_history.touched && medical_history.invalid">
+                <div>DOB is required</div>
+            </div>
+        </div>
+        <br>
+
+
+        <div class="form-group">
+            <label>symptoms:</label>
+            <input name="symptoms"  #symptoms="ngModel" [(ngModel)]="doctorService.formDiagnosisData.symptoms" required class="form-control">
+            <div class="validation-error" *ngIf="symptoms.touched && symptoms.invalid">
+                
+            </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label>diagnosis:</label>
+            <input name="diagnosis"  #diagnosis="ngModel" [(ngModel)]="doctorService.formDiagnosisData.diagnosis" required class="form-control">
+            <div class="validation-error" *ngIf="diagnosis.touched && diagnosis.invalid">
+                
+            </div>
+        </div>
+        <br>
+
+
+        <div class="form-group">
+            <label>doctor_note:</label>
+            <input name="doctor_note"  #doctor_note="ngModel" [(ngModel)]="doctorService.formDiagnosisData.doctor_note" required class="form-control">
+            <div class="validation-error" *ngIf="doctor_note.touched && doctor_note.invalid">
+                
+            </div>
+        </div>
+        <br>
+
+
+        <div class="form-group">
+            <label>next_visit:</label>
+            <input type="date" name="next_visit"  #next_visit="ngModel" [(ngModel)]="doctorService.formDiagnosisData.next_visit" required class="form-control">
+            <div class="validation-error" *ngIf="next_visit.touched && next_visit.invalid">
+                
+            </div>
+        </div>
+        <br>
+
+
+
+        <div class="form-group">
+            <button type="submit" [disabled]="!(form.valid && form.dirty)" class="btn btn-lg btn-primary form-control" >Submit</button>
+        </div>
+
+            
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</div>

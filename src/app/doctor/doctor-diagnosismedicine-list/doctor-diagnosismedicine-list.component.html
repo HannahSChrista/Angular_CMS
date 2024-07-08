@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Medicine</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        h3 {
+            color: #0FA4AF;
+        }
+        .form-group label {
+            color: #0FA4AF;
+            font-weight: bold;
+        }
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #0FA4AF;
+        }
+        .btn-primary {
+            background-color: #0FA4AF;
+            border-color: #0FA4AF;
+        }
+        .btn-primary:hover {
+            background-color: #0c8a8f;
+            border-color: #0c8a8f;
+        }
+        .validation-error {
+            color: red;
+        }
+        hr {
+            border-top: 2px solid #0FA4AF;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h3>Add Medicine</h3>
+    <hr>
+    <h4>Patient Details</h4>
+    <!-- <div>
+        Patient ID: {{ formEmployeeData2.patient.id }}
+    </div>
+    <div>
+        Patient Name: {{ formEmployeeData2.patient.name }}
+    </div> -->
+    <!-- Add more fields as needed, using safe navigation (?) -->
+
+    
+    <form name="formEmployee" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+        
+        <input type="hidden" name="id" [(ngModel)]="doctorService.formMedicineData.id">
+
+        <div class="form-group">
+            <label>patient:</label>
+            <input name="patient" #patient="ngModel" [(ngModel)]="doctorService.formEmployeeData.patient.id" required class="form-control">
+            <div class="validation-error" *ngIf="patient.touched && patient.invalid">
+                
+            </div>
+        </div>
+        <br>
+
+        <!-- <div class="form-group">
+            <label>Name:</label>
+            <input name="name" #name="ngModel" [(ngModel)]="doctorservice.formEmployeeData.patient.gender" required class="form-control">
+            <div class="validation-error" *ngIf="name.touched && name.invalid">
+                
+            </div>
+        </div>
+        <br> -->
+
+        <!-- Medicines Section -->
+        <!-- <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Choose Medicine</label>
+                    <select name="medicineid" id="medicineid"
+                    #medicineid="ngModel"
+                    class="form-control" required
+                    [(ngModel)]="doctorservice.formMedicineData.medicineid">
+                        <option value=0 disabled>Choose Medicine</option>
+                        <option *ngFor="let medicine of doctorservice.medicine"
+                        value="{{medicine.medicinedetails.id}}">
+                            {{medicine.medicinedetails.name}}           
+                        </option>
+                    </select>
+                    <div class="validation-error" *ngIf="medicineid.touched && medicineid.invalid">
+                    
+                    </div>
+                </div>
+            </div> -->
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>medicine:</label>
+                    <input name="medicineid"  #medicineid="ngModel" [(ngModel)]="doctorService.formMedicineData.medicineid" required class="form-control">
+                    <div class="validation-error" *ngIf="medicineid.touched && medicineid.invalid">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>dosage:</label>
+                    <input name="dosage"  #dosage="ngModel" [(ngModel)]="doctorService.formMedicineData.dosage" required class="form-control">
+                    <div class="validation-error" *ngIf="dosage.touched && dosage.invalid">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>no_days:</label>
+                    <input name="no_days"  #no_days="ngModel" [(ngModel)]="doctorService.formMedicineData.no_days" required class="form-control">
+                    <div class="validation-error" *ngIf="no_days.touched && no_days.invalid">
+                    
+                    </div>
+                </div>
+            </div>
+        
+        <br>
+       
+        <div class="form-group">
+            <button type="submit" [disabled]="!(form.valid && form.dirty)" class="btn btn-lg btn-primary form-control">Submit</button>
+        </div>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</div>
+</body>
+</html>

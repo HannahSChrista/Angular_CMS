@@ -1,0 +1,69 @@
+<!-- app.component.html or specific component HTML file -->
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: Arial, sans-serif;
+    }
+    .header {
+        background-color: #0FA4AF;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+    .table {
+        background-color: white;
+    }
+    .table thead th {
+        background-color: #0FA4AF;
+        color: white;
+    }
+    .btn-outline-secondary {
+        border-color: #0FA4AF;
+        color: #0FA4AF;
+    }
+    .btn-outline-secondary:hover {
+        background-color: #0FA4AF;
+        color: white;
+    }
+    .custom-margin {
+        margin-left: 10px;
+    }
+</style>
+
+<!-- Your HTML content here -->
+<div class="header">
+    <h2>Patient Appointments</h2>
+</div>
+
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>OP ID</th>
+                <th>Patient</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Blood Group</th>
+                <th>Appointment Time</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of doctorservice.bookappointment">
+                <td>{{emp.patient.opid}}</td>
+                <td>{{emp.patient.name}}</td>
+                <td>{{emp.patient.gender}}</td>
+                <td>{{emp.patient.age}}</td>
+                <td>{{emp.patient.blood_group}}</td>
+                <td>{{emp.time_slot}}</td>
+                <td>
+                    <button (click)="getRecord(emp)" class="btn btn-outline-secondary custom-margin">
+                        <span><i class="fa fa-users-plus fa-1g"></i></span> ADD DIAGNOSIS
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
